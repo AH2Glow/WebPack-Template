@@ -2,12 +2,21 @@
     "name": "minifyproject",
     "version": "1.0.0",
     "description": "",
-    "main": "main.js",
+    "private": true,
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "sass:watch": "sass --watch --style=compressed src/sass/site.scss dist/styles.css"
+        "build": "webpack"
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "css-loader": "^6.7.1",
+        "css-minimizer-webpack-plugin": "^4.0.0",
+        "mini-css-extract-plugin": "^2.6.1",
+        "sass-loader": "^13.0.2",
+        "style-loader": "^3.3.1",
+        "terser-webpack-plugin": "^5.3.5",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
+    }
 }
