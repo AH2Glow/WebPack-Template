@@ -1,8 +1,19 @@
-import { logApp } from "./app/app.js";
+console.log("test");
 
-const logIndex = () => {
-    console.log("index.js working...");
-};
+class Test {
+    title = "";
+    #secret = "";
 
-logIndex();
-logApp();
+    constructor(title, secret) {
+        this.title = title;
+        this.#secret = secret;
+    }
+
+    getSecret() {
+        return this.#secret;
+    }
+}
+
+const test1 = new Test("Main", "haha");
+
+console.log(test1.title, test1.secret, test1.getSecret());

@@ -17,15 +17,34 @@ module.exports = {
     ],
     optimization: {
         minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
-        minimize: true,
+        // minimize: true,
     },
     module: {
         rules: [
             {
+                // Compile Sass and extract to separate CSS file
                 test: /\.s[ac]ss$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
+            {
+                // Transpile modern JavaScript code to older syntax
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["@babel/preset-env"],
+                    },
+                },
+            },
+            // {
+            //     test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            //     type: "asset/resource",
+            // },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: "asset/resource",
+            },
         ],
     },
-    watch: true,
 };
